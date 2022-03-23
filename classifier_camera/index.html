@@ -1,0 +1,65 @@
+<html>
+<head>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+    <style>
+        .block {
+            float: left;
+            background-color: powderblue;
+            margin: 1em;
+            padding: 1em;
+            border: solid 0.1em black;
+        }
+
+        .tableTitle {
+            font-size: 1.5em;
+            font-weight: bolder;
+            padding-bottom:1em;
+        }
+
+        #btn_uploadfile, #btn_testImg {
+            width: 15em;
+            background-color: white;
+        }
+
+    </style>
+
+</head>
+  <body>
+      <!-- Open webcam -->
+      <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+
+      <div class="block">
+          <table style="width:100%">
+              <tr colspan="2">
+                  <td class="tableTitle">
+                      Upload examples
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <input type="file" name="files" id="files" multiple>
+                  </td>
+                  <td>
+                      Class: <input type="number" name="class" id="class" step="1" value="1" />
+                  </td>
+              </tr>
+              <tr colspan="2">
+                  <td>
+                      <input type="button" id="btn_uploadfile"
+                             value="Upload"
+                             onclick="uploadFile();" />
+                  </td>
+              </tr>
+          </table>
+      </div>
+
+      <div class="block" id="console"></div>
+
+      <!-- Load index.js after the content of the page -->
+      <script src="index.js"></script>
+  </body>
+</html>
